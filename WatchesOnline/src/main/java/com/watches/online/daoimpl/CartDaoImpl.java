@@ -2,28 +2,30 @@ package com.watches.online.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.watches.online.dao.CartDao;
 import com.watches.online.entity.Cart;
+import com.watches.online.entity.CartItem;
 
+@Repository
 public class CartDaoImpl implements CartDao
 {
-
-	public void addCart(Cart cart) 
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public void addCart(CartItem cartItem) 
 	{
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().saveOrUpdate(cartItem);
 		
 	}
 
-	public List<Cart> getCartList(int userId) 
-	{
-		// TODO Auto-generated method stub
-		return null;
+	public List<Cart> ListCart() {
+		List<Cart> CartList = ( sessionFactory.getCurrentSession().createQuery("from Cart")).list();
+		return CartList;
 	}
 
-	public void deleteCartById(int cartId) 
-	{
-		// TODO Auto-generated method stub
-		
-	}
 
 }

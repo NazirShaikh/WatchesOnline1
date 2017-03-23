@@ -29,32 +29,23 @@ public class Product
 	@NotEmpty(message="Product Description can not be empty")
 	@Expose
 	private String productDescription;
-	
 	@Expose
 	private int productQuantity;
-	
 	@Expose
 	private double productPrice;
-	
 	@Expose
 	private int productDiscount;
-	
 	@Expose
 	private double productAmount;
-	
 	@Expose
 	private int categoryId;
-	
 	@Expose
 	private int subCategoryId;
-	
 	@Expose
 	private int supplierId;
 	
 	@Transient
 	private MultipartFile productImg;
-	
-	
 	
 	@Expose
 	@ManyToOne
@@ -153,7 +144,7 @@ public class Product
 		this.supplier = supplier;
 	}
 
-	
-	
 
+	
+	
 }

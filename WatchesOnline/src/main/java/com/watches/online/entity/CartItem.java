@@ -1,5 +1,7 @@
 package com.watches.online.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,10 +26,17 @@ public class CartItem
 		
 		private double productPrice;
 		
+		private Date dateOfOrdered;
+		
+		private int productDiscount;
+		
+		private double productAmount;
+		
 		private int userId;
 		
 		private int cartId;
-		private boolean flag;
+		
+		private String flag;
 		
 		@ManyToOne
 		@JoinColumn(name="productId",updatable=false,insertable=false,nullable=false)
@@ -38,8 +47,6 @@ public class CartItem
 		@ManyToOne
 		@JoinColumn(name="cartId",updatable=false,insertable=false,nullable=false)
 		private Cart cart;
-		
-		
 		public int getCartItemId() {
 			return cartItemId;
 		}
@@ -76,6 +83,24 @@ public class CartItem
 		public void setProductPrice(double productPrice) {
 			this.productPrice = productPrice;
 		}
+		public Date getDateOfOrdered() {
+			return dateOfOrdered;
+		}
+		public void setDateOfOrdered(Date dateOfOrdered) {
+			this.dateOfOrdered = dateOfOrdered;
+		}
+		public int getProductDiscount() {
+			return productDiscount;
+		}
+		public void setProductDiscount(int productDiscount) {
+			this.productDiscount = productDiscount;
+		}
+		public double getProductAmount() {
+			return productAmount;
+		}
+		public void setProductAmount(double productAmount) {
+			this.productAmount = productAmount;
+		}
 		public int getUserId() {
 			return userId;
 		}
@@ -88,10 +113,11 @@ public class CartItem
 		public void setCartId(int cartId) {
 			this.cartId = cartId;
 		}
-		public boolean isFlag() {
+		
+		public String getFlag() {
 			return flag;
 		}
-		public void setFlag(boolean flag) {
+		public void setFlag(String flag) {
 			this.flag = flag;
 		}
 		public Product getProduct() {
@@ -112,6 +138,8 @@ public class CartItem
 		public void setCart(Cart cart) {
 			this.cart = cart;
 		}
+		
+		
 		
 		
 }

@@ -3,7 +3,8 @@
   .carousel-inner > .item > a > img 
   {
       width: 100%;
-      margin: 20px;
+      max-height: 400px;
   }
   
+  style="background-color: rgba(0,0,0,.0001); color: black;"
  

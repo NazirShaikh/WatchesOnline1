@@ -1,26 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page isELIgnored="false" %>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
- <link href="Resources/css/styles.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="Resources/css/bootstrap.min.css"/>
-  <script src="Resources/js/angular.min.js" ></script>
-</head>
-<body>
-
-
-	
-	<jsp:include page="customHeader.jsp" />
-	
-<%-- 	<div class="text-center">  		   
+<%@include file="customHeader.jsp" %>
+	<%@ page isELIgnored="false" %>
+	<div class="text-center">  		   
 	 	 <a href="subcategory" class="btn btn-info" role="button">SubCategory</a>
 		 <a href="product" class="btn btn-info" role="button">Product</a>
 		 <a href="supplier" class="btn btn-info" role="button">Supplier</a>
@@ -57,21 +37,21 @@
 
 	<c:forEach var="c" items="${categoryList}">
 		<tr> 
-		<td>${c.categoryId}</td>
-		<td>${c.categoryName}</td>
-		<td>${c.categoryDescription}</td>
-		<td><a href="editcategory-${c.categoryId}"><button type="button" class="btn btn-success">Edit</button></a></td>
-		
-		<td><a href="deletecategory-${c.categoryId}"><button type="button" class="btn btn-success">Delete</button></a></td>
+			<td>${c.categoryId}</td>
+			<td>${c.categoryName}</td>
+			<td>${c.categoryDescription}</td>
+ 			<td><a href="editcategory-${c.categoryId}"><button type="button" class="btn btn-success">Edit</button></a></td>
+			<td><a href="deletecategory-${c.categoryId}"><button type="button" class="btn btn-success">Delete</button></a></td>
+			
+<%-- 			<td><a href="editcategory-${c.categoryId}"class="btn"><i class="icon-edit"></i> <strong>Edit</strong></a></td>
+			<td><a href="deletecategory-${c.categoryId}"class="btn"><i class="icon-trash"></i> <strong>Delete</strong></a></td> --%>
 		</tr>
 	</c:forEach>
 	</table>
 
-</body>
-</html> --%>
 
 
-	<div class="container">
+	<%-- <div class="container">
 	<div class="text-center">  		   
 	 	 <a href="category" class="btn btn-info" role="button">SubCategory</a>
 		 <a href="subcategory" class="btn btn-info" role="button">Supplier</a>
@@ -139,37 +119,16 @@
  <br>
 	
 
-	<!-- <div class="container" ng-app="myApp" ng-controller="myCtrl"> -->
-	<table class="table table-hover table-fixed" id="myTable">
-	
-    <tr>
-	<th class="control-label col-sm-2">Sr No.</th>
-	<th class="control-label col-sm-2">Name</th>
-	<th class="control-label col-sm-2">Description</th>
-	<th class="control-label col-sm-2">Edit</th>
-	<th class="control-label col-sm-2">Delete</th>
-	</tr>
-	
+	<div class="container" ng-app="myApp" ng-controller="myCtrl"> 
+	<table>
 	<tr ng-repeat="c in myScope">
-	
-    <td class="control-label col-sm-2">{{c.categoryId}}</td>
-	<td class="control-label col-sm-2">{{c.categoryName}}</td>
-	<td class="control-label col-sm-2">{{c.categoryDescription}}</td>
-	<td class="control-label col-sm-2"><a href="editcategory-{{c.categoryId}}">Edit</a></td>
-	<td class="control-label col-sm-2"><a href="deletecategory-{{c.categoryId}}">Delete</a></td>
-    </tr>
+	<td>{{c.categoryId}}</td>
 	</table>
-	
+	</div>
 <script>
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope){
-    $scope.myScope=${listCategoryByJson};
+    $scope.myScope=${categoryListByJson};
 });
 </script>	
-
-
-<script src="Resources/js/jquery-1.10.2.min.js"></script>
-
-<script src="Resources/js/bootstrap.min.js" ></script>
-</body>
-</html>
+ --%>
